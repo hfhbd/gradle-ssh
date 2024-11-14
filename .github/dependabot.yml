@@ -1,0 +1,34 @@
+version: 2
+registries:
+  intellij:
+    type: maven-repository
+    url: https://www.jetbrains.com/intellij-repository/releases
+  intellij-deps:
+    type: maven-repository
+    url: https://cache-redirector.jetbrains.com/intellij-dependencies
+  kotlin-ide:
+    type: maven-repository
+    url: https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-ide-plugin-dependencies/
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "hfhbd"
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "hfhbd"
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "hfhbd"
+    registries:
+      - intellij
+      - intellij-deps
+      - kotlin-ide
